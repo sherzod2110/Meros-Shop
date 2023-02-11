@@ -12,7 +12,7 @@ export default {
     if (!cashDublCategory) {
       const dublCategory: void | DublSubCategoryEntity[] = await dataSource
         .getRepository(DublSubCategoryEntity)
-        .find({
+        .find({ 
           relations: { 
             product: true,
           },
