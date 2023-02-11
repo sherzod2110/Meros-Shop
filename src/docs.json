@@ -1,0 +1,1619 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/user/get": {
+      "get": {
+        "sammary": "HEADERS DAN USER NI TOKENINI BERIB GET QILIB CHIQARASIZ",
+        "parameters": [
+          {
+            "headers": "token",
+            "in": "headers dan token berib yuborib get qiling",
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYmRiZDk4LTZhNmMtNGQxOC04MmU1LTg3NjA2MDU1ODcwMyIsImlhdCI6MTY3NTYzMDU5OX0.WtDorEJdS3Ryg8SQtvLIr_OD0BeXO3Zd6dbUPZDlT3A"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserGet"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["User"]
+      }
+    },
+    "/user/create": {
+      "post": {
+        "tags": ["User"],
+        "summary": "Create User",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUser"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CreateUser"
+                  }
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid status value"
+          }
+        }
+      }
+    },
+    "/user/update/{headers(token)}": {
+      "put": {
+        "tags": ["User"],
+        "summary": "Update User",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserUpdate"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/delete/{headers(token)}": {
+      "delete": {
+        "tags": ["User"],
+        "summary": "Delete User",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDelete"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserDelete"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/category/get": {
+      "get": {
+        "sammary": "Get all Category",
+        "parameters": [
+          {
+            "title": "access_token",
+            "in": "header",
+            "schema": {
+              "example": "in string",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "id": "",
+                    "title": "Clothes"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Category"]
+      }
+    },
+    "/category/create": {
+      "post": {
+        "tags": ["Category"],
+        "summary": "Create Category",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CategoryPost"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CategoryPost"
+                  }
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid status value"
+          }
+        }
+      }
+    },
+    "/category/update/{categoryId}": {
+      "put": {
+        "tags": ["Category"],
+        "summary": "Update Category",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CategoryUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CategoryUpdate"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/category/delete/{categoryId}": {
+      "delete": {
+        "tags": ["Category"],
+        "summary": "Delete Category",
+        "responses": {
+          "404": {
+            "description": "Category not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "items": {
+                    "$ref": "#/components/schemas/CategoryDelete"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/subCategory/get": {
+      "get": {
+        "sammary": "Get all SubCategory",
+        "parameters": [
+          {
+            "title": "access_token",
+            "in": "header",
+            "schema": {
+              "example": "What's up",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "id": "13124sf4435vfds543",
+                    "title": "Clothes"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["SubCategory"]
+      }
+    },
+    "/subCategory/create": {
+      "post": {
+        "tags": ["SubCategory"],
+        "summary": "Create SubCategory",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubCategoryPost"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SubCategoryPost"
+                  }
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid status value"
+          }
+        }
+      }
+    },
+    "/subCategory/update/{subCategoryId}": {
+      "put": {
+        "tags": ["SubCategory"],
+        "summary": "Update SubCategory",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubCategoryUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SubCategoryUpdate"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subCategory/delete/{subCategoryId}": {
+      "delete": {
+        "tags": ["SubCategory"],
+        "summary": "Delete SubCategory",
+        "responses": {
+          "404": {
+            "description": "SubCategory not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "items": {
+                    "$ref": "#/components/schemas/SubCategoryDelete"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/dublSubCategory/get": {
+      "get": {
+        "sammary": "Get all DublSubCategory",
+        "parameters": [
+          {
+            "title": "access_token",
+            "in": "header",
+            "schema": {
+              "example": "What's up",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "id": "13124sf4435vfds543",
+                    "title": "Child"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["DublSubCategory"]
+      }
+    },
+    "/dublSubCategory/create": {
+      "post": {
+        "tags": ["DublSubCategory"],
+        "summary": "Create dublSubCategory",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DublSubCategoryPost"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DublSubCategoryPost"
+                  }
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid status value"
+          }
+        }
+      }
+    },
+    "/dublSubCategory/update/{dublSubCategoryId}": {
+      "put": {
+        "tags": ["DublSubCategory"],
+        "summary": "Update dublSubCategory",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DublSubCategoryUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DublSubCategoryUpdate"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dublSubCategory/delete/{DublSubCategoryId}": {
+      "delete": {
+        "tags": ["DublSubCategory"],
+        "summary": "Delete dublSubCategory",
+        "responses": {
+          "404": {
+            "description": "DublSubCategory not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "items": {
+                    "$ref": "#/components/schemas/DublSubCategoryDelete"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/product/get": {
+      "get": {
+        "sammary": "Get all Product",
+        "parameters": [
+          {
+            "title": "access_token",
+            "in": "header",
+            "schema": {
+              "example": "What's up",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductGet"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Product"]
+      }
+    },
+    "/product/get/one/productId": {
+      "get": {
+        "sammary": "Get product one",
+        "parameters": [
+          {
+            "title": "access_token",
+            "in": "header",
+            "schema": {
+              "example": "What's up",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductGetOne"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Product"]
+      }
+    },
+    "/product/get/pagenation/?limit=10&page=1": {
+      "get": {
+        "sammary": "Get product limit offset",
+        "parameters": [
+          {
+            "title": "access_token",
+            "in": "header",
+            "schema": {
+              "example": "What's up",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductGetPagination"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Product"]
+      }
+    },
+    "/product/get/sales/sort": {
+      "get": {
+        "sammary": "Get price sort",
+        "parameters": [
+          {
+            "title": "access_token",
+            "in": "header",
+            "schema": {
+              "example": "What's up",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductGetPriceSOrt"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Product"]
+      }
+    },
+    "/product/get/chegirma/sort": {
+      "get": {
+        "sammary": "Get product chegirma sort",
+        "parameters": [
+          {
+            "title": "access_token",
+            "in": "header",
+            "schema": {
+              "example": "What's up",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductGetChegirmaSort"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Product"]
+      }
+    },
+    "/product/get/reyting/sort": {
+      "get": {
+        "sammary": "Get product chegirma sort",
+        "parameters": [
+          {
+            "title": "access_token",
+            "in": "header",
+            "schema": {
+              "example": "What's up",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductGetReytingSort"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Product"]
+      }
+    },
+    "/product/create": {
+      "post": {
+        "tags": ["Product"],
+        "summary": "Create Product",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductPost"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProductPost"
+                  }
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid status value"
+          }
+        }
+      }
+    },
+    "/product/update/{productId}": {
+      "put": {
+        "tags": ["Product"],
+        "summary": "Update Product",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProductUpdate"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product/update/chegirma/{productId}": {
+      "put": {
+        "tags": ["Product"],
+        "summary": "Product ni id si bilan update chegirma qilib chegirma elon qilasiz",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductUpdateChegirma"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProductUpdateChegirma"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product/delete/{productId}": {
+      "delete": {
+        "tags": ["Product"],
+        "summary": "Delete Product",
+        "responses": {
+          "404": {
+            "description": "Product not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "items": {
+                    "$ref": "#/components/schemas/ProductDelete"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/comments/get": {
+      "get": {
+        "sammary": "Get all comments",
+        "parameters": [
+          {
+            "title": "access_token",
+            "in": "header",
+            "schema": {
+              "example": "What's up",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "id": "13124sf4435vfds543",
+                    "title": "zur"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Comments"]
+      }
+    },
+    "/comments/create": {
+      "post": {
+        "tags": ["Comments"],
+        "summary": "Create comment",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CommentPost"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CommentPost"
+                  }
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid status value"
+          }
+        }
+      }
+    },
+    "/comments/update/{commentId}": {
+      "put": {
+        "tags": ["Comments"],
+        "summary": "Update Comment",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CommentUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DublSubCategoryUpdate"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/comments/delete/{commentId}": {
+      "delete": {
+        "tags": ["Comments"],
+        "summary": "Delete comment",
+        "responses": {
+          "404": {
+            "description": "comment not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "items": {
+                    "$ref": "#/components/schemas/CommentDelete"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/reyting/get": {
+      "get": {
+        "sammary": "Get reyting",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReytingGet"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Reyting"]
+      }
+    },
+    "/reyting/get/reyting/sort": {
+      "post": {
+        "tags": ["Reyting"],
+        "summary": "Reyting Sort ",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReytingGetSort"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ReytingGetSort"
+                  }
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid status value"
+          }
+        }
+      }
+    },
+    "/reyting/create": {
+      "put": {
+        "tags": ["Reyting"],
+        "summary": "Create Reyting",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReytingCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserUpdate"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "info": {
+    "title": "Meros system",
+    "version": "0.0.0",
+    "description": "API documentation"
+  },
+  "components": {
+    "schemas": {
+      "UserGet": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "in string"
+          },
+          "username": {
+            "type": "string",
+            "example": "Eshamt"
+          },
+          "password": {
+            "type": "string",
+            "example": "123456789"
+          },
+          "phone": {
+            "type": "string",
+            "example": "+998 90 608 22 80"
+          },
+          "email": {
+            "type": "string",
+            "example": "@gmail.com"
+          },
+          "img": {
+            "type": "string",
+            "example": "picsum.com"
+          },
+          "gender": {
+            "type": "string",
+            "example": "Erkak"
+          }
+        }
+      },
+      "CreateUser": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "in string"
+          },
+          "username": {
+            "type": "string",
+            "example": "Eshamt"
+          },
+          "password": {
+            "type": "string",
+            "example": "123456789"
+          },
+          "phone": {
+            "type": "string",
+            "example": "+998 90 608 22 80"
+          },
+          "email": {
+            "type": "string",
+            "example": "@gmail.com"
+          },
+          "img": {
+            "type": "string",
+            "example": "picsum.com"
+          },
+          "gender": {
+            "type": "string",
+            "example": "Erkak"
+          }
+        }
+      },
+      "UserUpdate": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "in string"
+          },
+          "username": {
+            "type": "string",
+            "example": "Eshamt"
+          },
+          "password": {
+            "type": "string",
+            "example": "123456789"
+          },
+          "phone": {
+            "type": "string",
+            "example": "+998 90 608 22 80"
+          },
+          "email": {
+            "type": "string",
+            "example": "@gmail.com"
+          },
+          "img": {
+            "type": "string",
+            "example": "picsum.com"
+          },
+          "gender": {
+            "type": "string",
+            "example": "Erkak"
+          }
+        }
+      },
+      "UserDelete": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "in string"
+          }
+        }
+      },
+      "CategoryGet": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "in string"
+          },
+          "title": {
+            "type": "string",
+            "example": "Clothes"
+          }
+        }
+      },
+      "CategoryPost": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "in string"
+          },
+          "title": {
+            "type": "string",
+            "example": "Book"
+          }
+        }
+      },
+      "CategoryUpdate": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "in string"
+          },
+          "title": {
+            "type": "string",
+            "example": "Book"
+          }
+        }
+      },
+      "CategoryDelete": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "id": "in string",
+            "example": "2058e22a-e092-4cb9-a854-7c16f3f373a1"
+          }
+        }
+      },
+
+      "SubCategoryGet": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "in string"
+          },
+          "title": {
+            "type": "string",
+            "example": "Women"
+          }
+        }
+      },
+      "SubCategoryPost": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "in string"
+          },
+          "title": {
+            "type": "string",
+            "example": "Book"
+          }
+        }
+      },
+      "SubCategoryUpdate": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "in string"
+          },
+          "title": {
+            "type": "string",
+            "example": "Book"
+          }
+        }
+      },
+      "SubCategoryDelete": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "id": "in string",
+            "example": "2058e22a-e092-4cb9-a854-7c16f3f373a1"
+          }
+        }
+      },
+      "CommentGet": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "in string"
+          },
+          "title": {
+            "type": "string",
+            "example": "Women"
+          }
+        }
+      },
+      "CommentPost": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "example": "in string"
+          },
+          "producId": {
+            "type": "string",
+            "example": "2058e22a-e092-4cb9-a854-7c16f3f373a1"
+          }
+        }
+      },
+      "CommentUpdate": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "example": "Book"
+          }
+        }
+      },
+      "CommentDelete": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "id": "in string",
+            "example": "2058e22a-e092-4cb9-a854-7c16f3f373a1"
+          }
+        }
+      },
+
+      "DublSubCategoryGet": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "in string"
+          },
+          "title": {
+            "type": "string",
+            "example": "Women"
+          }
+        }
+      },
+      "DublCategoryPost": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "in string"
+          },
+          "title": {
+            "type": "string",
+            "example": "Book"
+          }
+        }
+      },
+      "DublSubCategoryUpdate": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "in string"
+          },
+          "title": {
+            "type": "string",
+            "example": "Book"
+          }
+        }
+      },
+      "DublSubCategoryDelete": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "id": "in string",
+            "example": "2058e22a-e092-4cb9-a854-7c16f3f373a1"
+          }
+        }
+      },
+
+      "ProductGetOne": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "in string"
+          },
+          "title": {
+            "type": "string",
+            "example": "Women"
+          },
+          "price": {
+            "type": "string",
+            "example": "100 000"
+          },
+          "comments": {
+            "type": "string",
+            "example": "Zur"
+          },
+          "brand": {
+            "type": "string",
+            "example": "fashion"
+          },
+          "size": {
+            "type": "string",
+            "example": "33 px"
+          },
+          "author": {
+            "type": "string",
+            "example": "kitob author"
+          },
+          "discription": {
+            "type": "string",
+            "example": "good"
+          },
+          "color": {
+            "type": "string",
+            "example": "red"
+          },
+          "madeIn": {
+            "type": "string",
+            "example": "Uzbekistan"
+          },
+          "img": {
+            "type": "string",
+            "example": "lorem@.com"
+          },
+          "img1": {
+            "type": "string",
+            "example": "lorem@.com"
+          },
+          "dublSubId": {
+            "type": "string",
+            "example": "123543211"
+          }
+        }
+      },
+      "ProductGetPriceSOrt": {
+        "type": "object",
+        "properties": {
+          "price": {
+            "type": "string",
+            "example": "100 000   200 000    300 000"
+          }
+        }
+      },
+      "ProductGetChegirmaSort": {
+        "type": "object",
+        "properties": {
+          "price": {
+            "type": "string",
+            "example": "10%    20%     30%"
+          }
+        }
+      },
+      "ProductGetReytingSort": {
+        "type": "object",
+        "properties": {
+          "price": {
+            "type": "string",
+            "example": "3   4   5"
+          }
+        }
+      },
+      "ProductGetPagination": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "in string"
+          },
+          "title": {
+            "type": "string",
+            "example": "Women"
+          },
+          "price": {
+            "type": "string",
+            "example": "100 000"
+          },
+          "comments": {
+            "type": "string",
+            "example": "Zur"
+          },
+          "brand": {
+            "type": "string",
+            "example": "fashion"
+          },
+          "size": {
+            "type": "string",
+            "example": "33 px"
+          },
+          "author": {
+            "type": "string",
+            "example": "kitob author"
+          },
+          "discription": {
+            "type": "string",
+            "example": "good"
+          },
+          "color": {
+            "type": "string",
+            "example": "red"
+          },
+          "madeIn": {
+            "type": "string",
+            "example": "Uzbekistan"
+          },
+          "img": {
+            "type": "string",
+            "example": "lorem@.com"
+          },
+          "img1": {
+            "type": "string",
+            "example": "lorem@.com"
+          },
+          "dublSubId": {
+            "type": "string",
+            "example": "123543211"
+          }
+        }
+      },
+      "ProductGet": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "in string"
+          },
+          "title": {
+            "type": "string",
+            "example": "Women"
+          },
+          "price": {
+            "type": "string",
+            "example": "100 000"
+          },
+          "comments": {
+            "type": "string",
+            "example": "Zur"
+          },
+          "brand": {
+            "type": "string",
+            "example": "fashion"
+          },
+          "size": {
+            "type": "string",
+            "example": "33 px"
+          },
+          "author": {
+            "type": "string",
+            "example": "kitob author"
+          },
+          "discription": {
+            "type": "string",
+            "example": "good"
+          },
+          "color": {
+            "type": "string",
+            "example": "red"
+          },
+          "madeIn": {
+            "type": "string",
+            "example": "Uzbekistan"
+          },
+          "img": {
+            "type": "string",
+            "example": "lorem@.com"
+          },
+          "img1": {
+            "type": "string",
+            "example": "lorem@.com"
+          },
+          "dublSubId": {
+            "type": "string",
+            "example": "123543211"
+          }
+        }
+      },
+      "ProductPost": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "in string"
+          },
+          "title": {
+            "type": "string",
+            "example": "Women"
+          },
+          "price": {
+            "type": "string",
+            "example": "100 000"
+          },
+          "comments": {
+            "type": "string",
+            "example": "Zur"
+          },
+          "brand": {
+            "type": "string",
+            "example": "fashion"
+          },
+          "size": {
+            "type": "string",
+            "example": "33 px"
+          },
+          "author": {
+            "type": "string",
+            "example": "kitob author"
+          },
+          "discription": {
+            "type": "string",
+            "example": "good"
+          },
+          "color": {
+            "type": "string",
+            "example": "red"
+          },
+          "madeIn": {
+            "type": "string",
+            "example": "Uzbekistan"
+          },
+          "img": {
+            "type": "string",
+            "example": "lorem@.com"
+          },
+          "img1": {
+            "type": "string",
+            "example": "lorem@.com"
+          },
+          "dublSubId": {
+            "type": "string",
+            "example": "123543211"
+          }
+        }
+      },
+      "ProductUpdate": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "in string"
+          },
+          "title": {
+            "type": "string",
+            "example": "Women"
+          },
+          "price": {
+            "type": "string",
+            "example": "100 000"
+          },
+          "comments": {
+            "type": "string",
+            "example": "Zur"
+          },
+          "brand": {
+            "type": "string",
+            "example": "fashion"
+          },
+          "size": {
+            "type": "string",
+            "example": "33 px"
+          },
+          "author": {
+            "type": "string",
+            "example": "kitob author"
+          },
+          "discription": {
+            "type": "string",
+            "example": "good"
+          },
+          "color": {
+            "type": "string",
+            "example": "red"
+          },
+          "madeIn": {
+            "type": "string",
+            "example": "Uzbekistan"
+          },
+          "img": {
+            "type": "string",
+            "example": "lorem@.com"
+          },
+          "img1": {
+            "type": "string",
+            "example": "lorem@.com"
+          },
+          "dublSubId": {
+            "type": "string",
+            "example": "123543211"
+          }
+        }
+      },
+      "ProductUpdateChegirma": {
+        "type": "object",
+        "properties": {
+          "chegirma": {
+            "type": "number",
+            "example": 60
+          }
+        }
+      },
+      "ProductDelete": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "id": "in string",
+            "example": "2058e22a-e092-4cb9-a854-7c16f3f373a1"
+          }
+        }
+      }
+    }
+  }
+}

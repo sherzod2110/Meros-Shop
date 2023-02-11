@@ -1,0 +1,43 @@
+import Joi from "joi"
+
+export const productValidate: Joi.ObjectSchema<any> = Joi.object({
+  title: Joi.string().max(30),
+  price: Joi.number(),
+  chegirma: Joi.number().min(2).max(100),
+  comments: Joi.string(),
+  rate: Joi.number(),
+  brand: Joi.string(),
+  size: Joi.string(),
+  netto: Joi.string(),
+  author: Joi.string(),
+  discription: Joi.string(),
+  color: Joi.string(),
+  madeIn: Joi.string(),
+  img: Joi.string(),
+  img1: Joi.string(),
+  img2: Joi.string(),
+  img3: Joi.string(),
+  img4: Joi.string(),
+  dublSubId: Joi.string(),
+})
+
+export const productUpdate: Joi.ObjectSchema<any> = Joi.object({
+  title: Joi.string(),
+  price: Joi.number(),
+  comments: Joi.string(),
+  rate: Joi.number(),
+  brand: Joi.string(),
+  size: Joi.string(),
+  netto: Joi.string(),
+  author: Joi.string(),
+  discription: Joi.string(),
+  color: Joi.string(),
+  madeIn: Joi.string(),
+  img: Joi.string(),
+  img1: Joi.string(),
+  img2: Joi.string(),
+  img3: Joi.string(),
+  img4: Joi.string(),
+  chegirma: Joi.number().min(2).max(100),
+  dublSubId: Joi.string(),
+})
