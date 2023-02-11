@@ -4,12 +4,14 @@ import routes from "./controller/index"
 import errorHandler from "./middlewares/errorHandler"
 import swagger from "swagger-ui-express"
 import docs from "./docs.json"
+import cors from "cors"
 
 const main = async (): Promise<void> => {
   const app: Application = express()
 
   try {
     await AppDataSource.initialize()
+    app.use(cors)
     app.use(express.json())
     app.use(routes)
     app.use(errorHandler)

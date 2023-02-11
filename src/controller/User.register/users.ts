@@ -12,7 +12,7 @@ export default {
     try {
       const { token } = req.headers as any
       const { id } = verify(token) as any
-
+ 
       const clint = await redis()
       const cashUsers = (await clint?.get("User")) as any
 

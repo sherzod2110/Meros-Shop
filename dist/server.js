@@ -9,10 +9,12 @@ const index_1 = __importDefault(require("./controller/index"));
 const errorHandler_1 = __importDefault(require("./middlewares/errorHandler"));
 const swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
 const docs_json_1 = __importDefault(require("./docs.json"));
+const cors_1 = __importDefault(require("cors"));
 const main = async () => {
     const app = (0, express_1.default)();
     try {
         await ormconfig_1.AppDataSource.initialize();
+        app.use(cors_1.default);
         app.use(express_1.default.json());
         app.use(index_1.default);
         app.use(errorHandler_1.default);
