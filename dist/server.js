@@ -14,7 +14,7 @@ const main = async () => {
     const app = (0, express_1.default)();
     try {
         await ormconfig_1.AppDataSource.initialize();
-        app.use(cors_1.default);
+        app.use((0, cors_1.default)());
         app.use(express_1.default.json());
         app.use(index_1.default);
         app.use(errorHandler_1.default);

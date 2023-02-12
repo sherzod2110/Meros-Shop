@@ -10,7 +10,7 @@ import { InsertResult, UpdateResult } from "typeorm"
 export default {
   GET: async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
-      const { token } = req.headers as any
+      const { token } = req.headers as any 
       const { id } = verify(token) as any
  
       const clint = await redis()
